@@ -151,8 +151,8 @@ def drawMan(vertices):
     #Cabeça
     vertices['position'][133] = [0.0,0.0]
     for i in range(134,165):
-	    ang += (2.0*np.pi)/30
-	    vertices['position'][i] = [0.4*np.cos(ang)*radius+ax_move,0.4*np.sin(ang)*radius+ay_move]
+        ang += (2.0*np.pi)/30
+        vertices['position'][i] = [0.4*np.cos(ang)*radius+ax_move,0.4*np.sin(ang)*radius+ay_move]
     
     
 #Vértices para a Árvore
@@ -292,9 +292,9 @@ def main():
     dia = 1
     noite = 0
     
-    vermelho = 1
-    verde = 0.7
-    azul = 0.7
+    vermelho = .1
+    verde = .2
+    azul = .9
 
     while not glfw.window_should_close(window):
 
@@ -309,14 +309,10 @@ def main():
         #     verde -= 0.00015
         #     azul -= 0.00015
         if (dia == 1):
-            if(x < 0.1):
-                vermelho += 0.00015
-                verde += 0.0001
-                azul += 0.00001
+            if(x < 0):
+                azul += 0.000355
             else:
-                vermelho -= 0.0003
-                verde -= 0.00015
-                azul -= 0.0001
+                azul -= 0.000355
 
 
 
@@ -507,6 +503,9 @@ def main():
             x_lua += 0.00051
             if x_lua >= 1.2:
                 dia = 1
+                vermelho = .1
+                verde = .2
+                azul = .3
                 x_lua = -1.2
 
         # Matrix: Scale
